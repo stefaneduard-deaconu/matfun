@@ -24,7 +24,12 @@ function [A_k S] = task4(image_path, k)
   # 6
   Y = W' * A; # projection of A in PCS
   # 7
-  A_k = W * Y + nyu;
+  A_k = W * Y;
+  for i = 1:m
+    for j = 1:n
+      A_k(i, j) = A_k(i, j) - nyu(i);
+     endfor
+  endfor
   # imshow(uint8(A_k));
   # disp(S);
   # disp(S);

@@ -4,10 +4,12 @@ function [A_k S] = task3(image_path, k)
   m = size(A, 1);
   n = size(A, 2);
   # 1
-  nyu = zeros(m);
+  nyu = [];
   for i = 1:m
-    nyu(i) = sum(A(i, :)) / size(A, 2);
+    nyu = [nyu (sum(A(i, 1:n)) / n)];
   endfor
+  disp([m n]);
+  disp(size(nyu));
   # 2
   for i = 1:m
     for j = 1:n
@@ -28,7 +30,11 @@ function [A_k S] = task3(image_path, k)
   # 6
   Y = W' * A; # projection of A in PCS
   # 7
-  A_k = W * Y + nyu;
-  
+  A_k = W * Y;
+  for i = 1:m
+    for j = 1:n
+      A_k(i, j) = A_k(i, j) + nyu(i);
+     endfor
+  endfor
   imshow(uint8(A_k));
 endfunction
