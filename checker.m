@@ -154,6 +154,7 @@ function checker()
           success = 1;
           txt_out = fgetl (out);
           txt_ref = fgetl (ref);
+          disp([txt_out "    " txt_ref]);
           if txt_out!=txt_ref
               success=0;
           end

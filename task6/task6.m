@@ -10,7 +10,7 @@ function task6()
   in_path = strcat(pwd, '/in');
   max_dif = 10*200^3;
 
-  [m, A, eigenfaces pr_img] = eigenface_core(database_path);
+  [m, A, eigenfaces, pr_img] = eigenface_core(database_path);
 
   fid = fopen('./out/task6.txt', 'w');
    
