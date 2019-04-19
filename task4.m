@@ -1,4 +1,4 @@
-function [A_k S] = task4(image, k)
+function [A_k S] = task4(image_path, k)
   image = imread(image_path);
   A = double(image);
   m = size(A, 1);
@@ -22,10 +22,10 @@ function [A_k S] = task4(image, k)
   W = V(:, 1:k);
   #W = W';
   # 6
-  Y = W' * a; # projection of A in PCS
+  Y = W' * A; # projection of A in PCS
   # 7
   A_k = W * Y + nyu;
-  imshow(uint8(A_k));
-  disp(S);
+  # imshow(uint8(A_k));
+  # disp(S);
   # disp(S);
 endfunction
